@@ -6,6 +6,9 @@ console.log(typeof Math); // object
 console.log(typeof console); // object
 
 // on peut étendre (sauf verrou) n'importe quel objet
+// (mauvaise pratique d'étendre les objets standards du langage
+// ou de l'environnement, sauf en cas de polyfill, la méthode existe
+// dans une norme que le moteur JS ne supporte pas encore)
 Math.mathematicien = 'Evariste Galois';
 console.log(Math.mathematicien); // Evariste Galois
 
@@ -64,8 +67,10 @@ var re = /[a-z]+/; // bonne pratique
 
 // on peut itérer sur les propriétés d'un objet
 for (var prop in coords) {
-    console.log(prop); // 'x' 'y'
-    console.log(coords[prop]); // 10 20
+    if (coords.hasOwnProperty(prop)) {
+        console.log(prop); // 'x' 'y'   
+        console.log(coords[prop]); // 10 20
+    }
 }
 
 // on peut sérialiser un object avec la syntaxe JSON

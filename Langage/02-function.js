@@ -3,6 +3,13 @@
 // Ci dessous : Module IIFE (Immediately Invoked Function Expression)
 (function() {
     'use strict';
+
+    
+}());
+
+
+(function() {
+    'use strict';
     
     // Différentes syntaxes pour déclarer des fonctions
 
@@ -156,6 +163,9 @@
 
     var logBonjour = rememberClosure('Bonjour');
     logBonjour(); // Bonjour
+
+    var logCoucou = rememberClosure('Coucou');
+    logCoucou(); // Bonjour
 
     for (var i=0; i<3; i++) {
         setTimeout(rememberClosure(i), 0);
