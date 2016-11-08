@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemple Module</title>
+    </head>
+    <body>
+        <div id="horloge"></div>
+        <script src="../../node_modules/systemjs/dist/system.js"></script>
+        <script>
+            System.config({
+                defaultJSExtensions: true,
+                map: {
+                    moment: '../../node_modules/moment/moment',
+                    horloge: 'js/horloge'
+                }
+            })
+            System.import('js/main');
+        </script>
+    </body>
+</html>
