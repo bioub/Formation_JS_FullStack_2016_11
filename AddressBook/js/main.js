@@ -1,10 +1,3 @@
-require.config({
-    paths: {
-        moment: '../../node_modules/moment/moment',
-        horloge: './horloge'
-    }
-});
-
 require(['horloge'], function(Horloge) {
     'use strict';
 
