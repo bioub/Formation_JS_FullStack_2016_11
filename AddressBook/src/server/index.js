@@ -2,14 +2,18 @@ const express = require('express');
 const contactRoutes = require('./routes/contact');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const path = require('path');
 
 mongoose.connect('mongodb://localhost/addressbook');
 
 var app = express();
 
+
 app.use(morgan('dev'));
+app.use(express.static(path.resolve(__dirname + '/../client')));
 
 app.use('/api/v1.0/contacts', contactRoutes);
+
 
 // appelé si next()
 app.use('/api', function(req, res, next) {

@@ -1,0 +1,2 @@
+; proxy = "http://username:pass@ncproxy:8080"
+; rejectUnauthorized = false

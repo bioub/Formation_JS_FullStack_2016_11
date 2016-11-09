@@ -6,14 +6,24 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-usemin');
 
     grunt.initConfig({
+        shell: {
+            startDev: 'nodemon src/server',
+            startProd: 'node dist/server',
+        },
         clean: {
             preDist: ["dist/*"],
             postDist: [".tmp"]
         },
         copy: {
+            dev: {
+                expand: true,
+                src: 'node_modules/**',
+                dest: 'src/client'
+            },
             dist: {
                 files: [{
                     expand: true,
@@ -54,6 +64,11 @@ module.exports = function (grunt) {
         'usemin',
         'requirejs:compile',
         'clean:postDist',
+    ]);
+
+    grunt.registerTask('serveDev', [
+        'copy:dev',
+        'shell:startDev',
     ]);
 
     /*
