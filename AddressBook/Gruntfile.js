@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -8,6 +9,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-usemin');
 
     grunt.initConfig({
+        clean: {
+            preDist: ["dist/*"],
+            postDist: [".tmp"]
+        },
         copy: {
             dist: {
                 files: [{
@@ -40,13 +45,15 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('dist', [
+        'clean:preDist',
         'useminPrepare',
         'concat:generated',
         'uglify:generated',
         'cssmin:generated',
         'copy:dist',
         'usemin',
-        'requirejs:compile'
+        'requirejs:compile',
+        'clean:postDist',
     ]);
 
     /*
