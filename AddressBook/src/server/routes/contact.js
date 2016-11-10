@@ -20,6 +20,4 @@ router.get('/:id', contact.show);
 // Delete
 // router.delete('/:id', contact.delete);
 
-
-
 module.exports = router;

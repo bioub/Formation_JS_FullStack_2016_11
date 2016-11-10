@@ -14,7 +14,6 @@ app.use(express.static(path.resolve(__dirname + '/../client')));
 
 app.use('/api/v1.0/contacts', contactRoutes);
 
-
 // appelé si next()
 app.use('/api', function(req, res, next) {
     res.statusCode = 404;

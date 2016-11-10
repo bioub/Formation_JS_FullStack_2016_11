@@ -1,6 +1,7 @@
 {
   "name": "address-book",
   "dependencies": {
+    "angular": "^1.5.8",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",

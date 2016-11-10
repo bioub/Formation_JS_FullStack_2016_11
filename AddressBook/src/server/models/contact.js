@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 var Contact = mongoose.model('contacts', {
-    prenom: String,
+    prenom: {
+        type: String,
+        required: true
+    },
     nom: String,
 });
 
