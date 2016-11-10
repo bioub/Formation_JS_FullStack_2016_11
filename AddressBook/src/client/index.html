@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" ng-app="app.module">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,14 +42,8 @@
 
     <div class="container">
 
-      <div ng-controller="PrenomCtrl">
-        <div>
-            Prénom : <input ng-model="prenom">
-            <button ng-click="ajouter()">+</button>
-        </div>
-        <p ng-repeat="prenom in prenoms track by $index">
-            Bonjour <span ng-bind="prenom"></span>
-        </p>
+      <div ng-view>
+      
       </div>
 
       <hr>
@@ -64,11 +58,11 @@
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
     <script src="node_modules/requirejs/require.js"></script>
     <!-- endbuild -->
     <script src="js/config.js"></script>
     <script src="js/main.js"></script>
-    <script src="app/app.module.js"></script>
     
 
   </body>
