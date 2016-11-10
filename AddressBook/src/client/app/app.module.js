@@ -1,9 +1,13 @@
-define(['app/contact-list/contact-list.controller'], function (contactListCtrl) {
+define([
+    'app/contact-list/contact-list.controller',
+    'app/contact-add/contact-add.controller',
+    ], function (contactListCtrl, contactAddCtrl) {
     'use strict';
 
     var app = angular.module('app.module', [
         'ngRoute',
-        contactListCtrl
+        contactListCtrl,
+        contactAddCtrl,
     ]);
 
     app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -14,6 +18,11 @@ define(['app/contact-list/contact-list.controller'], function (contactListCtrl) 
         $routeProvider.when('/', {
             controller: 'ContactListCtrl',
             templateUrl: 'app/contact-list/contact-list.template.html'
+        });
+
+        $routeProvider.when('/ajouter', {
+            controller: 'ContactAddCtrl',
+            templateUrl: 'app/contact-add/contact-add.template.html'
         });
 
         //$routeProvider.otherwise('/');

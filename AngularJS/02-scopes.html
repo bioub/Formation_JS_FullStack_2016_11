@@ -9,7 +9,9 @@
             Prénoms : <input ng-model="prenoms" ng-list>
         </div>
         <p ng-repeat="prenom in prenoms track by $index">
-            Bonjour <span ng-bind="prenom"></span>
+            Bonjour {{prenom}}
+
+            <button ng-if="$last">-</button>
         </p>
         <script src="node_modules/angular/angular.js"></script>
     </body>
