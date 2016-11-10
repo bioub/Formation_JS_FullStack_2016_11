@@ -23,6 +23,12 @@ app.use('/api', function(req, res, next) {
     });
 });
 
+// on sert le fichier index.html au lieu de faire des 404
+// c'est à l'application client de gérer ces problèmes dans son router
+app.use(function(req, res, next) {
+    res.sendFile(path.resolve(__dirname + '/../client/index.html'));
+});
+
 // appelé si next('message')
 app.use('/api', function(err, req, res, next) {
     res.statusCode = 500;
