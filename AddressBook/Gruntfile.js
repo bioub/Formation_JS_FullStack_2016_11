@@ -27,28 +27,43 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    src: '*.html',
+                    cwd: 'src',
+                    src: 'client/*.html',
                     dest: 'dist/',
-                }, {
+                },{
                     expand: true,
-                    src: 'js/config.js',
+                    cwd: 'src',
+                    src: 'client/js/config.js',
                     dest: 'dist/',
+                },{
+                  expand: true,
+                  cwd: 'src',
+                  src: 'client/app/**/*',
+                  dest: 'dist/',
+                },{
+                  expand: true,
+                  cwd: 'src',
+                  src: 'server/**/*',
+                  dest: 'dist/',
                 }],
             },
         },
         useminPrepare: {
-            html: 'index.html'
+            options: {
+              dest: 'dist/client'
+            },
+            html: 'src/client/index.html'
         },
         usemin: {
-            html: 'dist/index.html'
+            html: 'dist/client/index.html'
         },
         requirejs: {
             compile: {
                 options: {
-                    baseUrl: "./",
-                    mainConfigFile: "js/config.js",
+                    baseUrl: "./src/client/",
+                    mainConfigFile: "./src/client/js/config.js",
                     include: ["js/main.js"],
-                    out: "dist/js/main.js"
+                    out: "./dist/client/js/main.js"
                 }
             }
         }
@@ -69,6 +84,11 @@ module.exports = function (grunt) {
     grunt.registerTask('serveDev', [
         'copy:dev',
         'shell:startDev',
+    ]);
+
+    grunt.registerTask('serveProd', [
+        'dist',
+        'shell:startProd',
     ]);
 
     /*

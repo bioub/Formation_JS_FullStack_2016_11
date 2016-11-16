@@ -1,0 +1,22 @@
+<style>
+    input.ng-invalid.ng-touched {
+        border: 1px solid red;
+        color: red;
+    }
+
+    span.error {
+        color: red;
+    }
+</style>
+<form name="contactForm" novalidate ng-submit="ajouter()">
+    <div>
+        Prénom : <input name="prenom" ng-model="contact.prenom" required>
+        <span class="error" ng-if="contactForm.prenom.$invalid && contactForm.prenom.$touched">
+            Ce champ est obligatoire
+        </span>
+    </div>
+    <div>
+        Nom : <input name="nom" ng-model="contact.nom">
+    </div>
+    <button type="submit">Ajouter</button>
+</form>
